@@ -149,3 +149,30 @@ function oddFn(n) {
 console.log(oddFn(10));
 console.log(oddFn(15));
 console.log(oddFn(20));
+
+// #8
+
+function mainFunc(a, b, cb) {
+    if (typeof cb !== 'function') {
+        return false;
+    }
+    return cb(a, b);
+}
+
+function cbRandom(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+function cbPow(num, pow) {
+    return Math.pow(num, pow);
+}
+
+function cbAdd(a, b) {
+    return a + b;
+}
+
+console.log(mainFunc(2, 5, cbRandom));
+console.log(mainFunc(10, 30, cbRandom));
+console.log(mainFunc(2, 5, cbPow));
+console.log(mainFunc(2, 5, cbAdd));
+console.log(mainFunc(2, 5, 'not a func'));
